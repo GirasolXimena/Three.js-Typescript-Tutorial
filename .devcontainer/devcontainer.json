@@ -4,6 +4,7 @@
   "name": "Node.js",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
   "image": "node:buster",
+  
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
       "installZsh": true,
@@ -21,6 +22,13 @@
     // "ghcr.io/devcontainers-contrib/features/typescript:2": {
     // 	"version": "latest"
     // }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot"
+      ]
+    }
   }
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},

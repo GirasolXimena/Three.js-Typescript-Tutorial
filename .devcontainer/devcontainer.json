@@ -15,25 +15,22 @@
       "userUid": "automatic",
       "userGid": "automatic"
     }
-    // "ghcr.io/devcontainers/features/github-cli:1": {
-    // 	"installDirectlyFromGitHubRelease": true,
-    // 	"version": "latest"
-    // },
-    // "ghcr.io/devcontainers-contrib/features/typescript:2": {
-    // 	"version": "latest"
-    // }
   },
   "customizations": {
     "vscode": {
       "extensions": [
-        "GitHub.copilot"
-      ]
+    "GitHub.copilot",
+    "vscodevim.vim",
+    "GitHub.copilot-labs"
+  ]
     }
-  }
+  },
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [],
+  "forwardPorts": [
+    8080
+  ]
   // Use 'postCreateCommand' to run commands after the container is created.
   // "postCreateCommand": "yarn install",
   // Configure tool-specific properties.

@@ -25,11 +25,10 @@ scene.add(cube)
 
 window.addEventListener('resize', onWindowResize, false)
 function onWindowResize() {
-  const { innerWidth: width, innerHeight: height } = window
 
-  camera.aspect = width / height
+  camera.aspect = window.innerWidth / window.innerHeight
   camera.updateProjectionMatrix()
-  renderer.setSize(width, height)
+  renderer.setSize(window.innerWidth, window.innerHeight)
   render()
 }
 
@@ -45,3 +44,5 @@ function animate() {
 function render() {
   renderer.render(scene, camera)
 }
+
+animate()

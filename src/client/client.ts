@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 
-const scene = new THREE.scene()
+const scene = new THREE.Scene()
 
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -25,9 +25,11 @@ scene.add(cube)
 
 window.addEventListener('resize', onWindowResize, false)
 function onWindowResize() {
-  camera.aspect = window.innerWidth / window.innerHeight
+  const { innerWidth: width, innerHeight: height } = window
+
+  camera.aspect = width / height
   camera.updateProjectionMatrix()
-  renderer.setSize(window.innerWidth, window.innerHeight)
+  renderer.setSize(width, height)
   render()
 }
 

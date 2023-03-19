@@ -48,5 +48,4 @@ function render() {
 }
 
 animate()
-// render()
 controls.addEventListener('change', render)

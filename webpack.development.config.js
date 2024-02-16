@@ -17,7 +17,8 @@ module.exports = merge(common, {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'dev-threejs'
+      title: 'dev-threejs',
+      template: 'src/client/index.html'
     })
   ]
 });

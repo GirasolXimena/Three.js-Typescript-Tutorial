@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
 {
-  "name": "Node.js",
+  "name": "Three Js Typescript Tutorial",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
   "image": "node:buster",
   
@@ -19,10 +19,11 @@
   "customizations": {
     "vscode": {
       "extensions": [
-    "GitHub.copilot",
-    "vscodevim.vim",
-    "GitHub.copilot-labs"
-  ]
+        "GitHub.copilot",
+        "vscodevim.vim",
+        "GitHub.copilot-labs",
+        "maattdd.gitless"
+      ]
     }
   },
   // Features to add to the dev container. More info: https://containers.dev/features.

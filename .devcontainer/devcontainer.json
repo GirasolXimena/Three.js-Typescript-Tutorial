@@ -22,7 +22,8 @@
         "GitHub.copilot",
         "vscodevim.vim",
         "GitHub.copilot-labs",
-        "maattdd.gitless"
+        "maattdd.gitless",
+        "vunguyentuan.vscode-postcss"
       ]
     }
   },

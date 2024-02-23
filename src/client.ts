@@ -1,8 +1,10 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import Stats from 'three/examples/jsm/libs/stats.module'
-import { GUI } from 'dat.gui'
+import { GUI } from 'lil-gui'
 import './style.css'
+
+const isDev = import.meta.env.DEV
 
 const canvas1 = document.getElementById('c1') as HTMLCanvasElement
 const canvas2 = document.getElementById('c2') as HTMLCanvasElement
@@ -37,8 +39,10 @@ renderer3.setSize(200, 200)
 const renderer4 = new THREE.WebGLRenderer({ canvas: canvas4})
 renderer4.setSize(200, 200)
 
-const controls = new OrbitControls(camera1, renderer1.domElement)
-controls.addEventListener('change', render)
+const controls1 = new OrbitControls(camera1, renderer1.domElement)
+const controls2 = new OrbitControls(camera2, renderer2.domElement)
+controls1.addEventListener('change', render)
+controls2.addEventListener('change', render)
 
 const geometry = new THREE.BoxGeometry()
 const material = new THREE.MeshBasicMaterial({
@@ -53,34 +57,32 @@ window.addEventListener('resize', onWindowResize, false)
 function onWindowResize() {
   // camera.aspect = window.innerWidth / window.innerHeight
   // camera.updateProjectionMatrix()
-  renderer1.setSize(window.innerWidth, window.innerHeight)
+  // renderer1.setSize(window.innerWidth, window.innerHeight)
   render()
 }
 
 const stats = Stats()
-document.body.appendChild(stats.dom)
+isDev && document.body.appendChild(stats.dom)
 
-const gui = new GUI()
-const cubeFolder = gui.addFolder('Cube')
-cubeFolder.add(cube.rotation, 'x', 0, Math.PI * 2)
-cubeFolder.add(cube.rotation, 'y', 0, Math.PI * 2)
-cubeFolder.add(cube.rotation, 'z', 0, Math.PI * 2)
-cubeFolder.open()
-// const cameraFolder = gui.addFolder('Camera')
-// cameraFolder.add(camera.position, 'z', 0, 10)
-// cameraFolder.open()
+if(isDev) {
+  const gui = new GUI()
+  const cubeFolder = gui.addFolder('Cube')
+
+  cubeFolder.add(cube.rotation, 'x', 0, Math.PI * 2)
+  cubeFolder.add(cube.rotation, 'y', 0, Math.PI * 2)
+  cubeFolder.add(cube.rotation, 'z', 0, Math.PI * 2)
+  cubeFolder.open()
+}
 
 function animate() {
   requestAnimationFrame(animate)
 
-  stats.begin()
   cube.rotation.x += 0.01
   cube.rotation.y += 0.01
-  stats.end()
 
   render()
 
-  stats.update()
+  isDev && stats.update()
 }
 
 function render() {

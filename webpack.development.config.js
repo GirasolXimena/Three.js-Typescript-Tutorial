@@ -7,10 +7,7 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'eval-source-map',
   devServer: {
-    static: {
-      directory: path.join(__dirname, './dist'),
-    },
-    hot: true,
+    hot: true
   },
   optimization: {
     runtimeChunk: 'single'
